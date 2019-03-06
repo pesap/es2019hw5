@@ -9,4 +9,22 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdow
+## Code explanation
+
+The code I selected was from a learning R repository on: https://github.com/josephpconley/R/blob/master/craps.R
+
+
+This is a game of two dice where you can win if the sum of both dice are 7 or 11 .It rolls a dice twice using the `sample` function from 1 to 6. Then check the sum of of the two numbers and if it is  7 ir 11 it save it in the wins vector. Finally it just sum the number of wins.
+```{r}
+wins <- rep(0,1000)
+for(i in 1:1000){
+  #roll dice
+  d <- sample(1:6, 2, replace=T)
+
+  #shooter wins in Come Out
+  if(sum(d) == 7 || sum(d) == 11) wins[i] <- 1
+}
+sum(wins)
+```
+
+
